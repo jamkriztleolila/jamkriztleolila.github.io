@@ -1,0 +1,24 @@
+.footer {
+  // border-top: 1px solid #000;
+  // display: flex;
+  // justify-content: left;
+  // padding: 1rem calc((80vw - 1000px) / 2);
+  // z-index: 0;
+  // background-image: url('../../imgs/banner.jpg');
+  // background-size: 1000px;
+  // width: 100%;
+  // position: fixed;
+  // bottom: 0;
+}
+
+.credits {
+  height: 50px;
+  // background: red;
+  bottom: 0;
+  position:relative;
+  padding: 15px 20px 0 20px;
+  span {
+    font-size: 0.8rem;
+    text-align: right;
+  }
+}

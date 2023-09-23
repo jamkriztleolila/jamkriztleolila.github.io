@@ -1,0 +1,21 @@
+$primary: #C61A1A;
+$black: #000;
+$white: #fff;
+$secondary-bg: #f4f4f4;
+$primary-light: rgb(198, 26, 26, 0.9);
+$breakpoint-xs: 0px;
+$breakpoint-sm: 600px;
+$breakpoint-md: 900px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1536px;
+
+
+
+@mixin m-left($margin) { margin-left: $margin; }
+@mixin m-right($margin) { margin-right: $margin; }
+@mixin m-top($margin) { margin-top: $margin; }
+@mixin m-bottom($margin) { margin-bottom: $margin; }
+@mixin p-left($padding) { padding-left: $padding; }
+@mixin p-right($padding) { padding-right: $padding; }
+@mixin p-top($padding) { padding-top: $padding; }
+@mixin p-bottom($padding) { padding-bottom: $padding; }

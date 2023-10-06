@@ -1,8 +1,11 @@
-$primary: #C61A1A;
-$black: #000;
-$white: #fff;
+$primary: #9a0016;
+$black: #25323c;
+$white: #fcf8f0;
+$accent: #eff1e9;
 $secondary-bg: #f4f4f4;
-$primary-light: rgb(198, 26, 26, 0.9);
+$primary-light: rgb(154, 0, 22, 0.7);
+$black-lighter: rgb(37, 50, 60, 0.6);
+$black-lightest: rgb(37, 50, 60, 0.2);
 $breakpoint-xs: 0px;
 $breakpoint-sm: 600px;
 $breakpoint-md: 900px;
@@ -10,6 +13,14 @@ $breakpoint-lg: 1200px;
 $breakpoint-xl: 1536px;
 
 
+@import url('https://fonts.googleapis.com/css?family=Rambla');
+@import url('https://fonts.googleapis.com/css?family=Ramabhadra');
+@import url('https://fonts.googleapis.com/css?family=Miniver');
+@import url('https://fonts.googleapis.com/css?family=Albert+Sans');
+
+
+$primary-font: 'Ramabhadra', Helvetica, Arial, sans-serif;
+$secondary-font: 'Rambla', Helvetica, Arial, sans-serif;
 
 @mixin m-left($margin) { margin-left: $margin; }
 @mixin m-right($margin) { margin-right: $margin; }
@@ -19,3 +30,11 @@ $breakpoint-xl: 1536px;
 @mixin p-right($padding) { padding-right: $padding; }
 @mixin p-top($padding) { padding-top: $padding; }
 @mixin p-bottom($padding) { padding-bottom: $padding; }
+
+@mixin border-t($size) { border-top: $size solid $black; }
+@mixin border-r($size) { border-right: $size solid $black; }
+@mixin border-b($size) { border-bottom: $size solid $black; }
+@mixin border-l($size) { border-left: $size solid $black; }
+@mixin border-all($size) { border: $size solid $black; }
+@mixin border-y($size) { border-top: $size solid $black; border-bottom: $size solid $black; }
+@mixin border-x($size) { border-right: $size solid $black; border-left: $size solid $black; }

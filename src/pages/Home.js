@@ -1,27 +1,34 @@
 import React, { useLayoutEffect } from 'react';
-import {  Button, Container, Grid, IconButton, Tooltip } from '@mui/material';
+import { Container, Grid, IconButton, Tooltip } from '@mui/material';
 import { useParallax } from "react-scroll-parallax";
-import Slider from "react-slick";
+import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import CardContentItem from '../components/CardContentItem';
-import ProductView from '../components/Product/ProductView';
-import ProductImg from '../components/Product/ProductImg';
-import { cardContentItems, imageGridOptions, carouselSettings, productCarousel } from '../data/Landing';
+import phone from '../imgs/21.png';
+import poster from '../imgs/22.png';
+import me from '../imgs/intro-me.jpg';
+
+import { cardContentItems, imageGridOptions } from '../data/Landing';
 import ImageGrid from '../scripts/ImageGrid';
 
 const Home = () => {
   useLayoutEffect(() => {
+    window.scrollTo(0, 0);
     ImageGrid(imageGridOptions);
   }, []);
   const parallax = useParallax({
     speed: -20,
   });
+  const navigate = useNavigate();
+  function redirectToWork(path){
+    navigate(`works?filter=${path}`, {state: '/works'});
+  };
   return (
     <Container id='main' maxWidth='xl' ref={parallax.ref}>
       <div id='home'>
       <section id='landing'>
         <Grid container spacing={0}>
-          <Grid item md={6} sm={6} xs={12} order={{ xs: 1, sm: 2, md: 2 }}>
+          <Grid item xl={7} md={6} sm={6} xs={12} order={{ xs: 1, sm: 2, md: 2 }}>
             <motion.div
               initial={{ opacity: 0, y:-30 }}
               animate={{ opacity: 1, y:0 }}
@@ -30,12 +37,11 @@ const Home = () => {
               }}
             >
               <div className='black-brd-img'>
-                {/* <img src={img} /> */}
                 <div className='me-placeholder'></div>
               </div>
             </motion.div>
           </Grid>
-          <Grid item md={6} sm={6} xs={12} order={{ xs: 2, sm: 1, md: 1 }}>
+          <Grid item xl={5} md={6} sm={6} xs={12} order={{ xs: 2, sm: 1, md: 1 }} className='landing-container'>
             <Container maxWidth='sm'>
                 <div className='heading'>
                 <motion.div initial={{ opacity: 0, y:-30 }} animate={{ opacity: 1, y:0 }}
@@ -49,8 +55,8 @@ const Home = () => {
                   <motion.div initial={{ opacity: 0, y:-70 }} animate={{ opacity: 1, y:0 }}
                   transition={{ duration: 2 }} >
                     <div className='btn-grp'>
-                      <button className='primary-btn'>View my works</button>
-                      <button className='secondary-btn'>Contact me</button>
+                      <button className='primary-btn' onClick={() => redirectToWork('all')}>View my works</button>
+                      <button className='secondary-btn' onClick={() => window.location = 'mailto:instructionlessbyjko@gmail.com'}>Contact me</button>
                     </div>
                   </motion.div>
                 </div>
@@ -59,139 +65,81 @@ const Home = () => {
         </Grid>
       </section>
       <section id='products'>
-        <div className='border'>
-          <div className='line-t'></div>
-          <div className='line-l'></div>
-          <div className='line-r'></div>
-           <div className='line-b'></div>
+        <div className='black-heading'>
+          <div>products products products <span className='red'>products</span> products products products products products products products products products products products products products products products products products products products products products products products </div>
         </div>
-        <div className='border-text'>
-          <span>Some of my projects</span>
-        </div>
-        <Slider {...carouselSettings} className='product-slider'>
-          {productCarousel && productCarousel.map((item) => (
-            <Container xl className='product-carousel'>
-              <Grid container spacing={0}>
-                <Grid item md={5} xs={12}  order={{ sm: 1, md: 2 }}>
-                  <ProductImg img={item.img} />
-                </Grid>
-                <Grid item md={7} xs={12}  order={{ sm: 2, md: 1 }}>
-                  <ProductView
-                    name={item.name}
-                    date={item.date}
-                    type={item.type}
-                    description={item.description} />
-                </Grid>
-              </Grid>
-            </Container>
-          ))}
-        </Slider>
+        <Grid container spacing={0} className='services left'>
+          <Grid item md={6} sm={6}>
+            <div class='sample'>
+              <img src={phone} alt='sample work' />
+            </div>
+          </Grid>
+          <Grid item md={6} sm={6}>
+            <div className='content'>
+              <div className='subheading'>What we offer &#11835; v.1</div>
+              <h2>Design solutions</h2>
+              <p>From graphic materials, logo design, posters, branding to web & mobile design. As a multimedia designer, we will help your product or business find its face. </p>
+              <div className='btn-grp'>
+                <button className='contained-btn' onClick={() => redirectToWork('all')}>View my works</button>
+              </div>
+            </div>
+          </Grid>
+
+        </Grid>
+        <Grid container spacing={0} className='services right'>
+          <Grid item md={6} sm={6} order={{ xs: 2, sm: 1, md: 1 }}> 
+          <div className='content'>
+              <div className='subheading'>Let's collaborate &#11835; v.1</div>
+              <h2>Design Solutions</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
+              <div className='btn-grp'>
+                <button className='contained-btn' onClick={() => redirectToWork('all')}>View my works</button>
+              </div>
+            </div>
+          </Grid>
+          <Grid item md={6} sm={6}  order={{ xs: 1, sm: 2, md: 2 }}>
+            <img src={poster} alt='poster sample'/>
+          </Grid>
+          
+        </Grid>
       </section>
-      <section id='intro'>
-      <div className='header'>
-        <span>Check out my works</span>
-      </div>
-      <div className='skillset'>
+      <section id='services'>
+      <div className='black-heading'>
+          <div>services services services services services <span className='red'>services</span> services services services services services services services services services services services services services services services services services services services services services services services services services services services services services services services services services services services</div>
+        </div>
+       <div className='skillset'>
         {cardContentItems && cardContentItems.map((item, i) => (
           <CardContentItem 
             leftText={item.leftText}
             rightText={item.rightText}
             thumbnail={item.thumbnail}
             description={item.description}
+            redirect={()=> redirectToWork(item.filter)}
             />
         ))}
-        </div>
+        </div> 
       </section>
       <section id='contact'>
-        {/* <Grid container spacing={0}>
-          <Grid item md={5}> */}
-            <div className='business-card'>
-              <div className='heading'>— reach me at</div>
-            <div className='info'>
-              <span className='name'>Jam Kriztle Olila</span><br/>
-              <div className='details'>
-              <span>instructionlessbyjko@gmail.com</span><br/>
-                <span>jko.github.io</span>
-              </div>
-              <div className='socials'>
-                <Tooltip arrow title='Behance'><IconButton color='black' size='small'><i class="fa fa-behance"></i></IconButton></Tooltip>
-                <Tooltip arrow title='LinkedIn'><IconButton color='black' size='small'><i class="fa fa-linkedin"></i></IconButton></Tooltip>
-                <Tooltip arrow title='Instagram'><IconButton size='small'><i class="fa fa-instagram"></i></IconButton></Tooltip>
-                {/* <a href="#" class="fa fa-behance"></a> */}
-              </div>
-            </div>
-            </div>
-          {/* </Grid>
+        <Grid container spacing={0}  className='business-card'>
+          <Grid item md={5}>
+            <img src={me} style={{ width: '100%' }} alt='me' />
+          </Grid>
           <Grid item md={7}>
-            {/* <div className='contact-form'>
-              ass
-            </div> 
-          </Grid> 
-        </Grid>*/}
+            <div className='content'>
+              <div>
+                <span className='miniver'>hello,</span>
+                <div>My pen name is J.Ko but you can also call me Jam. I'm a fullstack developer based in the Philippines. Frontend development is my forte (in coding). <br/><br/> I'm also a self-taught multimedia designer. I used to create for leisure and fandoms I love but now I'm looking forward to share my skills to you!<br/><br/><br/></div>
+              <div className='primary-font'>LET'S WORK TOGETHER</div>Email me at: <a href="mailto: instructionlessbyjko@gmail.com">instructionlessbyjko@gmail.com</a>
+              <div className='socials'>
+                <Tooltip arrow title='Behance'><IconButton color='black' size='small' onClick={() => window.open('https://www.behance.net/paperJammed', '_blank')}><i class="fa fa-behance"></i></IconButton></Tooltip>
+                <Tooltip arrow title='LinkedIn'><IconButton color='black' size='small' onClick={() => window.open('https://www.linkedin.com/in/jamkriztleolila', '_blank')}><i class="fa fa-linkedin"></i></IconButton></Tooltip>
+                <Tooltip arrow title='Instagram'><IconButton size='small' onClick={() => window.open('https://www.instagram.com/by.jko/', '_blank')}><i class="fa fa-instagram"></i></IconButton></Tooltip>
+              </div>
+              </div>
+            </div>
+          </Grid>
+        </Grid>
       </section>
-
-{/*}                <div className='thumbnail'>
-                  <img src={intro} />
-                </div>
-                <div className='description'>
-                  <div className='title'>Posters</div>
-                  <div className='short-text'>Lorem ipsum yada yada yada yada yada</div>
-                </div>
-              </div>
-              <div className='item m-t-30'>
-                <div className='thumbnail'>
-                  <img src={intro} />
-                </div>
-                <div className='description'>
-                  <div className='title'>Posters</div>
-                  <div className='short-text'>Lorem ipsum yada yada yada yada yada</div>
-                </div>
-              </div>
-            </div>
-          </Grid>
-          <Grid item md={6}>
-          <div className='m-100'>
-              <div className='item'>
-                <div className='thumbnail'>
-                  <img src={intro} />
-                </div>
-                <div className='description'>
-                  <div className='title'>Posters</div>
-                  <div className='short-text'>Lorem ipsum yada yada yada yada yada</div>
-                </div>
-              </div>
-              <div className='item m-t-30'>
-                <div className='thumbnail'>
-                  <img src={intro} />
-                </div>
-                <div className='description'>
-                  <div className='title'>Posters</div>
-                  <div className='short-text'>Lorem ipsum yada yada yada yada yada</div>
-                </div>
-              </div>
-            </div>
-          </Grid>
-        </Grid>
-      </section> */}
-      {/* <section id='intro'>
-        <Grid container spacing={0}>
-          <Grid item md={2} sm={12}>
-              <div className='title'>
-                <span><h1>Introduction asdads Introduction Introduction  </h1></span>
-              </div>
-          </Grid> 
-          <Grid item md={5} sm={12}>
-              <div className='img'>
-                <img src={intro} />
-              </div>
-          </Grid>
-          <Grid item md={5} sm={12}>
-              <div className='content'>
-                
-              </div>
-          </Grid>
-        </Grid>
-      </section> */}
       </div>
 
     </Container>

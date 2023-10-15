@@ -44,6 +44,11 @@ import book7 from '../imgs/works/pb/7.jpg';
 import book8 from '../imgs/works/pb/8.jpg';
 import book9 from '../imgs/works/pb/9.jpg';
 import book10 from '../imgs/works/pb/credits.jpg';
+
+import chooco1 from '../imgs/works/chooco/1.jpg';
+import chooco2 from '../imgs/works/chooco/2.jpg';
+import chooco_t from '../imgs/works/chooco/chooco-sample.png';
+import chooco_credits from '../imgs/works/chooco/chooco credits.jpg';
 import p1 from '../imgs/works/p1.jpg';
 import p2 from '../imgs/works/p2.jpg';
 import p3 from '../imgs/works/p3.jpg';
@@ -75,6 +80,16 @@ const LOGO = 'logo';
 const DEVELOPMENT = 'development';
 
 export const fullCollection = [
+  {
+    id: 17,
+    title: 'Chooco',
+    type: 'Graphic Design',
+    pictures: [chooco1, chooco2, chooco_credits],
+    text: 'Chooco is a a mock product to showcase my skills in product and banner design.',
+    thumbnail: chooco_t,
+    date:'2023',
+    tags: [GRAPHIC_DESIGN]
+  },
   {
     id: 16,
     title: 'Raket',

@@ -26,22 +26,22 @@ export const skills = [
   {
     skill: 'Graphic Design',
     initial: '30%',
-    percentage: '80%'
+    percentage: '100%'
   },
   {
     skill: 'UI/UX Design',
     initial: '30%',
-    percentage: '75%'
+    percentage: '85%'
   },
   {
     skill: 'Web & Mobile Development',
     initial: '50%',
-    percentage: '75%'
+    percentage: '90%'
   },
   {
     skill: 'Layout Design',
     initial: '30%',
-    percentage: '70%'
+    percentage: '80%'
   },
 ];
 

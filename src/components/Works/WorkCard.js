@@ -25,7 +25,10 @@ function WorkCard({ i, type, thumbnail, title, handleOpen }) {
         <motion.div variants={thumbnailMotion}>
         <img src={thumbnail} alt={`${title} thumbnail`}/>
       </motion.div> : 
-      <Skeleton variant="rectangular" className='skeleton' />} 
+      <Skeleton variant="rectangular" className='skeleton'
+        sx={{ bgcolor: 'grey.900' }}
+        width={355}
+        height={383} />} 
       </div></div>
       <motion.div className='title' variants={textMotion}>
         <div className='project-type'>
